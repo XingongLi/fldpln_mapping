@@ -8,8 +8,8 @@ st.set_page_config(page_title="Streamlit Geospatial", layout="wide")
 # More icons can be found here: https://icons.getbootstrap.com
 
 apps = {
-    "home": {"title": "Home", "icon": "house"},
-    "heatmap": {"title": "Heatmap", "icon": "map"},
+    "home": {"title": "Flood Map", "icon": "water"},
+    "heatmap": {"title": "AHPS Gauges", "icon": "moisture"},
     "upload": {"title": "Upload", "icon": "cloud-upload"},
 }
 
@@ -35,12 +35,10 @@ with st.sidebar:
     st.sidebar.title("About")
     st.sidebar.info(
         """
-        This web [app](https://share.streamlit.io/giswqs/streamlit-template) is maintained by [Qiusheng Wu](https://wetlands.io). You can follow me on social media:
-            [GitHub](https://github.com/giswqs) | [Twitter](https://twitter.com/giswqs) | [YouTube](https://www.youtube.com/c/QiushengWu) | [LinkedIn](https://www.linkedin.com/in/qiushengwu).
-        
-        Source code: <https://github.com/giswqs/streamlit-template>
-
-        More menu icons: <https://icons.getbootstrap.com>
+        Kansas real-time flood mapping uses observed and forecast gauge stage from NOAA Advanced Hydrologic Prediction Service to map potential inundation for 25 watersheds
+        in eastern Kansas. The inundattion mapping method is developed by Jude Kastens at Kansas Biological Survey nnd this application is developed by a group of students and
+        faculty members including David Weekley, Jim Coll, Ken Ekpetere, James Halgren and Xingong Li at the Department of Geography & Atmospehric Science, University of Kansas and 
+        beyond. The project is funded by Kansas Water Office.
     """
     )
 

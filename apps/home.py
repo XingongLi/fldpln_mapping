@@ -3,17 +3,25 @@ import leafmap.foliumap as leafmap
 
 
 def app():
-    st.title("Home")
+    st.title("Kansas Real-Time Flood Mapping")
 
     st.markdown(
         """
-    A [streamlit](https://streamlit.io) app template for geospatial applications based on [streamlit-option-menu](https://github.com/victoryhb/streamlit-option-menu). 
-    To create a direct link to a pre-selected menu, add `?page=<app name>` to the URL, e.g., `?page=upload`.
-    https://share.streamlit.io/giswqs/streamlit-template?page=upload
-
+    This is a test of building the Kansas real-time flood mapping web application using leafmap and streamlit.
     """
     )
 
-    m = leafmap.Map(locate_control=True)
-    m.add_basemap("ROADMAP")
+    url = 'https://fldpln.blob.core.windows.net/maps/spring_NumOfFsps.tif' # localtileserver won't render a regular GeoTIFF
+    # print(leafmap.cog_validate(url))
+
+    # create a leafmap Map and center it to east Kansas
+    m = leafmap.Map(center=(37.170873920888894, -94.62906139455085),zoom = 10, locate_control=True) # breaks at level 7
+    m.add_basemap("HYBRID")
+
+    # add flood maps
+    # Map.add_local_tile(gtif, palette='Blues', layer_name=f'Spring Flood Map')
+    # or
+    m.add_geotiff(url, palette='Blues', layer_name='Spring Flood Map')
+
+    
     m.to_streamlit(height=700)
