@@ -3,11 +3,11 @@ import leafmap.foliumap as leafmap
 
 
 def app():
-    st.title("Kansas Real-Time Flood Mapping")
+    st.title("Current and Forecast Flood Map")
 
     st.markdown(
         """
-    This is a test of building the Kansas real-time flood mapping web application using leafmap and streamlit.
+    This is a test of building flood mapping web application using leafmap and streamlit.
     """
     )
 
@@ -29,15 +29,19 @@ def app():
     #
     # show single COG using titiler
     #
-    url = 'https://fldpln.blob.core.windows.net/maps/spring_NumOfFsps.tif' # localtileserver won't render a regular GeoTIFF
+    # url = 'https://fldpln.blob.core.windows.net/maps/spring_Flood.tif' # localtileserver won't render a regular GeoTIFF
     # print(leafmap.cog_validate(url))
 
     # create a leafmap Map and center it to east Kansas
-    m = leafmap.Map(center=(37.170873920888894, -94.62906139455085),zoom = 10, locate_control=True) # breaks at level 7
+    leafmap.Map()
+    m = leafmap.Map(center=(37.5, -94.7),zoom=7, locate_control=True) # breaks at level 7
     m.add_basemap("TERRAIN")
 
     # add flood maps
-    m.add_cog_layer(url, name="Spring flood map", palette="blues")
+    m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_MinDtf.tif', name="Minimum Depth-to-Flood", palette="reds",shown=False)
+    m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_Major.tif', name="Major flood map", palette="reds")
+    m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_Action.tif', name="Action flood map", palette="reds")
+    m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_fcst000.tif', name="Current flood map", palette="reds")
     m
     m.to_streamlit(height=700)
 

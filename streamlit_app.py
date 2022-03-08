@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-from apps import home, heatmap, upload  # import your app modules here
+from apps import ahps_gauges, flood_map, images, upload  # import your app modules here
 
 st.set_page_config(page_title="Streamlit Geospatial", layout="wide")
 
@@ -8,8 +8,9 @@ st.set_page_config(page_title="Streamlit Geospatial", layout="wide")
 # More icons can be found here: https://icons.getbootstrap.com
 
 apps = {
-    "home": {"title": "Flood Map", "icon": "water"},
-    "heatmap": {"title": "AHPS Gauges", "icon": "moisture"},
+    "flood_map": {"title": "Flood Map", "icon": "water"},
+    "ahps_gauges": {"title": "AHPS Gauges", "icon": "moisture"},
+    "images": {"title": "Images", "icon": "images"},
     "upload": {"title": "Upload", "icon": "cloud-upload"},
 }
 
