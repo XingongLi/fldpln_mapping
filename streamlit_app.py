@@ -36,9 +36,9 @@ with st.sidebar:
     st.sidebar.title("About")
     st.sidebar.info(
         """
-        Kansas real-time flood mapping uses observed and forecast gauge stage from NOAA Advanced Hydrologic Prediction Service to map potential inundation for 25 watersheds
+        Kansas flood mapping uses observed and forecast gauge stage from NOAA Advanced Hydrologic Prediction Service to map potential inundation for 25 floodplains
         in eastern Kansas. The inundattion mapping method is developed by Jude Kastens at Kansas Biological Survey nnd this application is developed by a group of students and
-        faculty members including David Weekley, Jim Coll, Ken Ekpetere, James Halgren and Xingong Li at the Department of Geography & Atmospehric Science, University of Kansas and 
+        faculty members, including David Weekley, Jim Coll, Ken Ekpetere, James Halgren and Xingong Li, at the Department of Geography & Atmospheric Science, University of Kansas and 
         beyond. The project is funded by Kansas Water Office.
     """
     )
