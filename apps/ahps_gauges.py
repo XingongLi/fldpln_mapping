@@ -6,7 +6,7 @@ def app():
 
     st.title("Gauge Observation and Forecast")
 
-    m = leafmap.Map(center=(37.170873920888894, -94.62906139455085),zoom = 6, locate_control=True) # breaks at level 7
+    m = leafmap.Map(center=(38.587981, -96.815613),zoom = 8, locate_control=True) # breaks at level 7
     m.add_basemap("TERRAIN")
 
     # add Advanced Hydrologic Prediction Service (AHPS) River Gauge Current and Forecast Flood Stages WMS/WFS services
@@ -22,4 +22,4 @@ def app():
 
     # show leafmap
     m
-    m.to_streamlit(height=700)
+    m.to_streamlit(height=800)

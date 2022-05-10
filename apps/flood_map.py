@@ -34,16 +34,24 @@ def app():
 
     # create a leafmap Map and center it to east Kansas
     leafmap.Map()
-    m = leafmap.Map(center=(37.5, -94.7),zoom=7, locate_control=True) # breaks at level 7
+    m = leafmap.Map(center=(38.587981, -96.815613),zoom = 8, locate_control=True) # breaks at level 7
     m.add_basemap("TERRAIN")
 
+    # add basemap
+    fldplnUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/Basemap/MapServer/WMSServer?'
+
+    # add forecast layers, layers added later are on the top!
+    m.add_wms_layer(url=fldplnUrl, layers='0', name='Floodplains', format='image/png', transparent=True, shown=True) # But this layer is layer 1 on MapServer!
+    m.add_wms_layer(url=fldplnUrl, layers='1', name='Streams', format='image/png', transparent=True, shown=True)
+
     # add flood maps
-    m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_MinDtf.tif', name="Minimum Depth-to-Flood", palette="reds",shown=False)
-    m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_Major.tif', name="Major flood map", palette="reds")
-    m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_Action.tif', name="Action flood map", palette="reds")
-    m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_fcst000.tif', name="Current flood map", palette="reds")
+    # m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_MinDtf.tif', name="Minimum Depth-to-Flood", palette="reds",shown=False)
+    # m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_Major.tif', name="Major flood map", palette="reds")
+    # m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_Action.tif', name="Action flood map", palette="reds")
+    # m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_fcst000.tif', name="Current flood map", palette="reds")
+
     m
-    m.to_streamlit(height=700)
+    m.to_streamlit(height=800)
 
     # #
     # # Show mosaic COG
