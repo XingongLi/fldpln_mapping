@@ -49,8 +49,8 @@ def app():
     m.add_wms_layer(url=mindtfUrl, layers='0', name='mindtf', format='image/png', transparent=True, shown=True)
 
     # add current and 14-day max flood maps
-    testUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/ConstantStage/ImageServer/WMSServer'
-    m.add_wms_layer(url=testUrl, layers='0', name='Random Constant Stage', format='image/png', transparent=True, shown=True)
+    randStageUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/RandomStage/ImageServer/WMSServer'
+    m.add_wms_layer(url=randStageUrl, layers='0', name='Random Constant Stage', format='image/png', transparent=True, shown=True)
     # m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_MinDtf.tif', name="Minimum Depth-to-Flood", palette="reds",shown=False)
     # m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_Major.tif', name="Major flood map", palette="reds")
     # m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_Action.tif', name="Action flood map", palette="reds")
