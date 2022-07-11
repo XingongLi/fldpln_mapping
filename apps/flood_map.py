@@ -39,18 +39,24 @@ def app():
     m.add_basemap("TERRAIN")
 
     # add FLDPLN basemaps (LIDAR terrain hillshade, floodplains, streams, ...)
-    fldplnBasemapUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/Basemap/MapServer/WMSServer?'
+    fldplnBasemapUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/Maps/MapServer/WMSServer?'
     # add floodplains and strems (i.e., flood source pixels) layers. Layers added later are on the top!
-    m.add_wms_layer(url=fldplnBasemapUrl, layers='0', name='Floodplains', format='image/png', transparent=True, shown=True) # But this layer is layer 1 on MapServer!
-    m.add_wms_layer(url=fldplnBasemapUrl, layers='1', name='Streams', format='image/png', transparent=True, shown=True)
+    m.add_wms_layer(url=fldplnBasemapUrl, layers='3', name='Reservoir and Floodplains', format='image/png', transparent=True, shown=True) # But this layer is layer 1 on MapServer!
+    m.add_wms_layer(url=fldplnBasemapUrl, layers='2', name='Streams', format='image/png', transparent=True, shown=True)
+    m.add_wms_layer(url=fldplnBasemapUrl, layers='0', name='Gauges', format='image/png', transparent=True, shown=True)
 
     # add additional FLDPLN reference layers (MinDtf, flood category layes (Action, Flood, Moderate, and Major))
-    # mindtfUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/MinDtf/ImageServer/WMSServer'
+    # mindtfUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/MinimumDepthToFlood/ImageServer/WMSServer'
     # m.add_wms_layer(url=mindtfUrl, layers='0', name='mindtf', format='image/png', transparent=True, shown=True)
 
-    # add current and 14-day max flood maps
-    randStageUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/RandomStage/ImageServer/WMSServer'
-    m.add_wms_layer(url=randStageUrl, layers='0', name='Random Stage', format='image/png', transparent=True, shown=True)
+    # add current reservoir and stream flood maps
+    # randStageUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/RandomStage/ImageServer/WMSServer'
+    # m.add_wms_layer(url=randStageUrl, layers='0', name='Random Stage', format='image/png', transparent=True, shown=True)
+    streamUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/StreamFloodMap_fcst000/ImageServer/WMSServer'
+    m.add_wms_layer(url=streamUrl, layers='0', name='Stream Flood Map', format='image/png', transparent=True, shown=True)
+    reservoirUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/ReservoirMap/ImageServer/WMSServer'
+    m.add_wms_layer(url=reservoirUrl, layers='0', name='Reservoir Map', format='image/png', transparent=True, shown=True)
+
     # m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_MinDtf.tif', name="Minimum Depth-to-Flood", palette="reds",shown=False)
     # m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_Major.tif', name="Major flood map", palette="reds")
     # m.add_cog_layer('https://fldpln.blob.core.windows.net/maps/spring_Action.tif', name="Action flood map", palette="reds")
