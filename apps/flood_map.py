@@ -41,9 +41,9 @@ def app():
     # add FLDPLN basemaps (LIDAR terrain hillshade, floodplains, streams, ...)
     fldplnBasemapUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/Maps/MapServer/WMSServer?'
     # add floodplains and strems (i.e., flood source pixels) layers. Layers added later are on the top!
-    m.add_wms_layer(url=fldplnBasemapUrl, layers='3', name='Reservoir and Floodplains', format='image/png', transparent=True, shown=True) # But this layer is layer 1 on MapServer!
+    m.add_wms_layer(url=fldplnBasemapUrl, layers='1', name='Reservoir and Floodplains', format='image/png', transparent=True, shown=True) # But this layer is layer 1 on MapServer!
     m.add_wms_layer(url=fldplnBasemapUrl, layers='2', name='Streams', format='image/png', transparent=True, shown=True)
-    m.add_wms_layer(url=fldplnBasemapUrl, layers='0', name='Gauges', format='image/png', transparent=True, shown=True)
+    m.add_wms_layer(url=fldplnBasemapUrl, layers='4', name='Gauges', format='image/png', transparent=True, shown=True)
 
     # add additional FLDPLN reference layers (MinDtf, flood category layes (Action, Flood, Moderate, and Major))
     # mindtfUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/MinimumDepthToFlood/ImageServer/WMSServer'
