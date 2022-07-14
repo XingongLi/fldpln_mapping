@@ -3,7 +3,7 @@ import leafmap.foliumap as leafmap
 
 
 def app():
-    st.title("Current and Forecast Flood Map")
+    st.title("Current Flood Map")
 
     st.markdown(
         """
