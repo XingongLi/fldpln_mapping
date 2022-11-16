@@ -1,3 +1,5 @@
+# cspell:includeRegExp comments
+
 import streamlit as st
 from streamlit_option_menu import option_menu
 from apps import ahps_gauges, flood_map, images, upload  # import your app modules here

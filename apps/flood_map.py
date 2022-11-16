@@ -1,3 +1,5 @@
+# cspell:includeRegExp comments
+
 import streamlit as st
 import leafmap.foliumap as leafmap
 
@@ -50,9 +52,9 @@ def app():
     # m.add_wms_layer(url=mindtfUrl, layers='0', name='mindtf', format='image/png', transparent=True, shown=True)
 
     # add current reservoir and stream flood maps
-    # randStageUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/RandomStage/ImageServer/WMSServer'
-    # m.add_wms_layer(url=randStageUrl, layers='0', name='Random Stage', format='image/png', transparent=True, shown=True)
-    streamUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/StreamFloodMap_fcst000/ImageServer/WMSServer'
+    randStageUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/RandomStage/ImageServer/WMSServer'
+    m.add_wms_layer(url=randStageUrl, layers='0', name='Random Stage', format='image/png', transparent=True, shown=True)
+    streamUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/StreamFloodMap_Nowcast/ImageServer/WMSServer'
     m.add_wms_layer(url=streamUrl, layers='0', name='Stream Flood Map', format='image/png', transparent=True, shown=True)
     reservoirUrl = 'https://services.kars.geoplatform.ku.edu/arcgis/services/fldpln_kansas/ReservoirMap/ImageServer/WMSServer'
     m.add_wms_layer(url=reservoirUrl, layers='0', name='Reservoir Map', format='image/png', transparent=True, shown=True)
